@@ -23,11 +23,11 @@ helpers do
 end
 
 not_found do
-  [404, {'Content-Type' => 'text/plain'}, ['Not found']]
+  [404, {'Content-Type' => 'text/plain'}, ['404 Not found']]
 end
 
 error do
-  [500, {'Content-Type' => 'text/plain'}, ['An error occured']]
+  [500, {'Content-Type' => 'text/plain'}, ['500 An error occured']]
 end
 
 get '/' do
@@ -47,7 +47,11 @@ get '/images/*' do |data|
     image.send(*step)
   end
 
-  image.to_response(env)
+  begin
+    image.to_response(env)
+  rescue OpenURI::HTTPError => e
+    halt 404
+  end
 end
 
 
