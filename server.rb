@@ -9,7 +9,6 @@ helpers do
     Dragonfly[:images]
   end
 
-
   def image_sha(payload)
     Digest::SHA1.hexdigest("#{payload}#{dragonfly.secret}")[0...8]
   end
@@ -48,7 +47,9 @@ get '/images/*' do |data|
   end
 
   begin
-    image.to_response(env)
+    Timeout::timeout(25) { image.to_response(env) }
+  rescue Timeout::Error => e
+    halt 500
   rescue OpenURI::HTTPError => e
     halt 404
   end
