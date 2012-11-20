@@ -47,7 +47,7 @@ get '/images/*' do |data|
   end
 
   begin
-    Timeout::timeout(25) { image.to_response(env) }
+    Timeout::timeout(5) { image.to_response(env) }
   rescue Timeout::Error => e
     halt 500
   rescue OpenURI::HTTPError => e
