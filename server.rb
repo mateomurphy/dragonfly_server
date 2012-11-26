@@ -3,6 +3,7 @@ require 'dragonfly'
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'multi_json'
+require 'timeout'
 
 helpers do
   def dragonfly
