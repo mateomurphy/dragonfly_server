@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'dragonfly', '~> 0.9.8'
+gem 'dragonfly', '~> 0.9.14'
 gem 'fog'
 gem 'foreman'
 gem 'rack-cache'

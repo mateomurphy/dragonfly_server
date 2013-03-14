@@ -4,7 +4,8 @@ GEM
     backports (2.6.5)
     builder (3.1.4)
     diff-lcs (1.1.3)
-    dragonfly (0.9.12)
+    dragonfly (0.9.14)
+      multi_json (~> 1.0)
       rack
     eventmachine (1.0.0)
     excon (0.16.8)
@@ -28,7 +29,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.6.1)
     nokogiri (1.5.5)
-    rack (1.4.1)
+    rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-protection (1.2.0)
